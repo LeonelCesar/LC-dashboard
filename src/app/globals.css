@@ -1,35 +1,37 @@
-@import "tailwindcss"; /* 🎨 Cores base do tema */
+@import "tailwindcss";
 :root {
-  /* Paleta clara */
   --background: #f7f9fb;
   --foreground: #1a1a1a;
   --card: #ffffff;
   --card-border: #e4e7eb;
-  --accent: #2563eb; /* Azul principal */
+  --accent: #2563eb;
   --accent-hover: #1d4ed8;
   --muted: #6b7280;
   --muted-bg: #f3f4f6;
   --shadow: rgba(0, 0, 0, 0.05);
-} /* 🌙 Tema escuro */
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0e141b;
     --foreground: #e5e7eb;
     --card: #1c1f26;
     --card-border: #2a2f3a;
-    --accent: #3b82f6; /* Azul mais vivo no dark */
+    --accent: #3b82f6;
     --accent-hover: #60a5fa;
     --muted: #9ca3af;
     --muted-bg: #111827;
     --shadow: rgba(0, 0, 0, 0.4);
   }
-} /* 🧱 Variáveis do Tailwind (modo inline) */
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans, "Inter", sans-serif);
   --font-mono: var(--font-geist-mono, "Fira Code", monospace);
-} /* ⚙️ Estilos globais */
+}
+
 html,
 body {
   background-color: var(--background);
@@ -56,7 +58,8 @@ a:hover {
 .card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px var(--shadow);
-} /* ✨ Utilitários extras */
+}
+
 .text-muted {
   color: var(--muted);
 }

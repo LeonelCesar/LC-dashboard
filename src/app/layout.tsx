@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import { Providers } from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,13 +39,11 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         `}
       >
         <div className="flex flex-col min-h-screen">
-        <Navbar />
+          <Navbar />
 
-          {/* 🔹 Conteúdo principal */}
-          <main className="flex-1 container mx-auto px-4 py-6">{children}</main>
-
-          {/* 🔹 Footer global (opcional futuramente) */}
-          {/* <Footer /> */}
+          <main className="flex-1 container mx-auto px-4 py-6">
+            <Providers>{children}</Providers>
+          </main>
         </div>
       </body>
     </html>
