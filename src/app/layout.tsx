@@ -39,11 +39,12 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         `}
       >
         <div className="flex flex-col min-h-screen">
-          <Navbar />
-
-          <main className="flex-1 container mx-auto px-4 py-6">
-            <Providers>{children}</Providers>
-          </main>
+          <Providers>
+            <Navbar />
+            <main className="flex-1 container mx-auto px-4 py-6">
+              {children}
+            </main>
+          </Providers>
         </div>
       </body>
     </html>

@@ -1,7 +1,7 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -10,13 +10,13 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        // Aqui normalmente verificas usuário num backend real
         if (
-          credentials?.email === "demo@user.com" &&
+          credentials?.email === "leonel@user.com" &&
           credentials?.password === "123456"
         ) {
-          return { id: "1", name: "Demo User", email: "demo@user.com" };
+          return { id: "1", name: "Leonel César", email: "ledonel@user.com" };
         }
+
         return null;
       },
     }),

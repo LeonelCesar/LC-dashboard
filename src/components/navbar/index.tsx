@@ -3,18 +3,22 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 function Navbar() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
-  // Detecta tema do sistema
+  const redirectToLogin = () => {
+    router.push("/login");
+  };
+
   useEffect(() => {
     const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     setTheme(isDark ? "dark" : "light");
   }, []);
 
-  // Alterna tema
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -27,28 +31,60 @@ function Navbar() {
         <Link
           href="/"
           className="text-xl font-semibold text-gray-800 dark:text-gray-100 tracking-tight"
+          onClick={(e) => {
+            e.preventDefault();
+            redirectToLogin();
+          }}
         >
-          LC<span className="text-blue-600">Dashboard</span>
+          LC<span className="text-blue-600">-HOME</span>
         </Link>
 
         <ul className="hidden md:flex gap-8 text-sm font-medium text-gray-700 dark:text-gray-300">
           <li>
-            <Link href="/dashboard" className="hover:text-blue-600">
+            <Link
+              href="/dashboard"
+              className="hover:text-blue-600"
+              onClick={(e) => {
+                e.preventDefault();
+                redirectToLogin();
+              }}
+            >
               Dashboard
             </Link>
           </li>
           <li>
-            <Link href="/projects" className="hover:text-blue-600">
+            <Link
+              href="/project"
+              className="hover:text-blue-600"
+              onClick={(e) => {
+                e.preventDefault();
+                redirectToLogin();
+              }}
+            >
               Projetos
             </Link>
           </li>
           <li>
-            <Link href="/finance" className="hover:text-blue-600">
+            <Link
+              href="/finances"
+              className="hover:text-blue-600"
+              onClick={(e) => {
+                e.preventDefault();
+                redirectToLogin();
+              }}
+            >
               Finanças
             </Link>
           </li>
           <li>
-            <Link href="/settings" className="hover:text-blue-600">
+            <Link
+              href="/settings"
+              className="hover:text-blue-600"
+              onClick={(e) => {
+                e.preventDefault();
+                redirectToLogin();
+              }}
+            >
               Configurações
             </Link>
           </li>
@@ -61,13 +97,12 @@ function Navbar() {
             className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
           >
             {theme === "light" ? (
-              <Moon className="w-5 h-5 text-gray-700" />
+              <Moon className="w-5 h-5 text-gray-400" />
             ) : (
               <Sun className="w-5 h-5 text-yellow-400" />
             )}
           </button>
 
-          {/* Menu mobile */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
@@ -81,7 +116,6 @@ function Navbar() {
         </div>
       </nav>
 
-      {/* Menu mobile aberto */}
       {menuOpen && (
         <div className="md:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 px-6 py-4">
           <ul className="flex flex-col gap-4 text-gray-700 dark:text-gray-300">
@@ -91,12 +125,12 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="/projects" onClick={() => setMenuOpen(false)}>
+              <Link href="/project" onClick={() => setMenuOpen(false)}>
                 Projetos
               </Link>
             </li>
             <li>
-              <Link href="/finance" onClick={() => setMenuOpen(false)}>
+              <Link href="/finances" onClick={() => setMenuOpen(false)}>
                 Finanças
               </Link>
             </li>

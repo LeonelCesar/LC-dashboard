@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-
 import {
   ArrowUpRight,
   BarChart3,
@@ -16,12 +15,9 @@ function HomePage() {
   const router = useRouter();
   const { data: session, status } = useSession();
 
+  // 🔹 Lógica para redirecionar corretamente
   const handlerStart = () => {
-    if (status === "unauthenticated") {
-      router.push("/login");
-    } else {
-      router.push("/dashboard");
-    }
+    router.push("/login");
   };
 
   return (
@@ -47,7 +43,6 @@ function HomePage() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
-        onClick={handlerStart}
       >
         <Card
           icon={<Users />}
@@ -83,20 +78,16 @@ function HomePage() {
           Explore relatórios, organize suas tarefas e veja seus resultados
           crescerem em tempo real.
         </p>
+
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
-          className="bg-accent hover:bg-accent-hover text-white font-medium px-6 py-3 rounded-xl shadow-soft flex items-center mx-auto gap-2 transition-all duration-300"
+          onClick={handlerStart}
+          className="bg-accent hover:bg-accent-hover border text-white font-medium px-6 py-3 rounded-xl shadow-soft flex items-center mx-auto gap-2 transition-all duration-300"
         >
           Começar Agora
           <ArrowUpRight size={20} />
         </motion.button>
-
-        <div className="mt-4 text-sm text-muted">
-          {status === "loading" && "Verificando autenticação..."}
-          {status === "authenticated" && `Logado como ${session?.user?.email}`}
-          {status === "unauthenticated" && "Você não está logado."}
-        </div>
       </motion.section>
     </main>
   );

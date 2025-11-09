@@ -25,7 +25,7 @@ function RegisterPage() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center from-blue-50 to-blue-100 bg-background text-foreground">
+    <main className="min-h-screen flex items-center justify-center from-blue-50 to-blue-100 bg-background text-foreground overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
