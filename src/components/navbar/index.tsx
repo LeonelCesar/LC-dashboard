@@ -1,18 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 function Navbar() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
 
-  const redirectToLogin = () => {
-    router.push("/login");
+ const { data: session, status } = useSession();
+  const isAuthenticated = status === "authenticated";
+
+   const handleNavigation = (path: string) => {
+    if (isAuthenticated) {
+      router.push(path); 
+    } else {
+      router.push("/login");
+    }
   };
+
+/*   const redirectToLogin = () => {
+    router.push("/login");
+  }; */
 
   useEffect(() => {
     const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -33,7 +45,7 @@ function Navbar() {
           className="text-xl font-semibold text-gray-800 dark:text-gray-100 tracking-tight"
           onClick={(e) => {
             e.preventDefault();
-            redirectToLogin();
+            handleNavigation("/");
           }}
         >
           LC<span className="text-blue-600">-HOME</span>
@@ -46,7 +58,7 @@ function Navbar() {
               className="hover:text-blue-600"
               onClick={(e) => {
                 e.preventDefault();
-                redirectToLogin();
+                handleNavigation("dashboard");
               }}
             >
               Dashboard
@@ -58,7 +70,7 @@ function Navbar() {
               className="hover:text-blue-600"
               onClick={(e) => {
                 e.preventDefault();
-                redirectToLogin();
+                handleNavigation("project");
               }}
             >
               Projetos
@@ -70,7 +82,7 @@ function Navbar() {
               className="hover:text-blue-600"
               onClick={(e) => {
                 e.preventDefault();
-                redirectToLogin();
+                handleNavigation("finances");
               }}
             >
               Finanças
@@ -82,7 +94,7 @@ function Navbar() {
               className="hover:text-blue-600"
               onClick={(e) => {
                 e.preventDefault();
-                redirectToLogin();
+                handleNavigation("settings");
               }}
             >
               Configurações
