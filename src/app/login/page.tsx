@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Lock, Mail, LogIn } from "lucide-react";
 
- function LoginPage() {
+function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -112,5 +112,3 @@ import { Lock, Mail, LogIn } from "lucide-react";
 }
 
 export default LoginPage;
-
-

@@ -16,7 +16,7 @@ function RegisterPage() {
     e.preventDefault();
     setLoading(true);
 
-    // 🔹 Simulando o cadastro (você pode trocar depois por chamada API real)
+    // Simulando o cadastro (trocar depois por chamada API real)
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     alert("Conta criada com sucesso!");

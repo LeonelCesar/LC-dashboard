@@ -188,7 +188,6 @@ function FinancasPage() {
         </div>
       </div>
 
-      {/* Tabela de transações */}
       <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-sm">
         <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">
           Transações Recentes

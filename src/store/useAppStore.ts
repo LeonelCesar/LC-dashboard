@@ -1,4 +1,3 @@
-// stores/useAppStore.ts
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -18,7 +17,7 @@ export const useAppStore = create<UIState>()(
       toggleSidebar: () => set((s) => ({ sidebarCollapsed: !s.sidebarCollapsed })),
     }),
     {
-      name: "lc-dashboard-ui", // key in localStorage
+      name: "lc-dashboard-ui", 
     }
   )
 );

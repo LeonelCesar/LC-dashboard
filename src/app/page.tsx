@@ -15,7 +15,7 @@ function HomePage() {
   const router = useRouter();
   const { data: session, status } = useSession();
 
-  // 🔹 Lógica para redirecionar corretamente
+  // Lógica para redirecionar corretamente
   const handlerStart = () => {
     router.push("/login");
   };

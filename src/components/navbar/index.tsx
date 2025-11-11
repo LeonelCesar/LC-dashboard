@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -11,20 +11,16 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
 
- const { data: session, status } = useSession();
+  const { data: session, status } = useSession();
   const isAuthenticated = status === "authenticated";
 
-   const handleNavigation = (path: string) => {
+  const handleNavigation = (path: string) => {
     if (isAuthenticated) {
-      router.push(path); 
+      router.push(path);
     } else {
       router.push("/login");
     }
   };
-
-/*   const redirectToLogin = () => {
-    router.push("/login");
-  }; */
 
   useEffect(() => {
     const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -103,6 +99,7 @@ function Navbar() {
         </ul>
 
         <div className="flex items-center gap-4">
+          {/*  <ThemeToggle />  */}
           <button
             onClick={toggleTheme}
             aria-label="Alternar tema"
