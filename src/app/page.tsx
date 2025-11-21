@@ -29,7 +29,7 @@ function HomePage() {
         className="max-w-5xl mx-auto text-center mb-16"
       >
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Bem-vindo ao{" "}
+          Bem-vindo a{" "}
           <span className="text-accent text-blue-800">LC Dashboard</span>
         </h1>
         <p className="text-muted text-lg md:text-xl">
