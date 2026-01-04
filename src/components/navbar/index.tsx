@@ -44,7 +44,7 @@ function Navbar() {
             handleNavigation("/");
           }}
         >
-          LC<span className="text-blue-600">-HOME</span>
+          LC-HOME
         </Link>
 
         <ul className="hidden md:flex gap-8 text-sm font-medium text-gray-700 dark:text-gray-300">
