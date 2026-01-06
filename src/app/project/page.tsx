@@ -10,7 +10,7 @@ const projetosMock = [
     progresso: 100,
     inicio: "01/09/2025",
     fim: "30/10/2025",
-    responsavel: "Leonel César",
+    responsavel: "Adão Domingoa Gonçalves Costa",
     descricao: "Dashboard interativa para gestão financeira de freelancers.",
   },
   {
@@ -28,7 +28,7 @@ const projetosMock = [
     progresso: 20,
     inicio: "05/11/2025",
     fim: "20/02/2026",
-    responsavel: "Equipa de Desenvolvimento",
+    responsavel: "Henriqueta Bengui César",
     descricao: "Sistema de relatórios e automação de finanças.",
   },
   {
